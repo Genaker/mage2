@@ -10,6 +10,7 @@ declare(strict_types=1);
 //namespace Mage\Mage;
 
 include 'Logger/Log.php';
+include 'Logger/Dump.php';
 include 'Core/Regestry.php';
 
 use \Mage\Mage\Logger\Log;
