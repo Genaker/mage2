@@ -1,0 +1,19 @@
+{
+    "name": "mage/mage",
+    "description": "Fix of the Magento 2 DI and Object Manager issue. Make Magento grate again!",
+    "type": "magento2-module",
+    "license": "GPL-3.0",
+    "minimum-stability": "stable",
+    "require": {
+        "symfony/var-dumper": ">=7.0"
+    },
+    "autoload": {
+        "files": [
+            "Mage.php",
+            "registration.php"
+        ],
+        "psr-4": {
+            "Mage\\Mage\\": ""
+        }
+    }
+}
