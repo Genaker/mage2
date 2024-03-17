@@ -14,7 +14,7 @@ trait Log
     public static $logger = null;
     public static $logBuffer = [];
     public static $logPath = '/var/log/';
-    public static $logFile = 'my-error.log';
+    public static $logFile = 'mage-log.log';
 
     public static $logFilePath = null;
 
