@@ -23,9 +23,9 @@ trait Log
         self::$logger = new Logger('mage_logger');
 
         if($file === null) {
-            self::$logFilePath = BP . self::$logFile;
+            self::$logFilePath = BP . '/' . self::$logPath. '/'. self::$logFile;
         } else {
-            self::$logFilePath = BP . $file;
+            self::$logFilePath = BP . '/' . self::$file;
         }
         // Now add some handlers
         self::$logger->pushHandler(new StreamHandler(self::$logFilePath));
