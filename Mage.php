@@ -62,4 +62,6 @@ class Mage
         }
         return self::$regestry['media_url'];
     }
+
+    
 }

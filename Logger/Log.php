@@ -11,14 +11,14 @@ use Monolog\Handler\FirePHPHandler;
 
 trait Log
 {
-    public $logger = null;
+    public static $logger = null;
     public static $logBuffer = [];
     public static $logPath = '/var/log/';
     public static $logFile = 'my-error.log';
 
     public static $logFilePath = null;
 
-    public static function Init($file = __DIR__ . '/mage.log')
+    public static function Init($file = BP . self::$logPath . '/mage.log')
     {
         self::$logger = new Logger('mage_logger');
 
