@@ -18,11 +18,15 @@ trait Log
 
     public static $logFilePath = null;
 
-    public static function Init($file = self::$logPath . '/mage.log')
+    public static function Init($file = null)
     {
         self::$logger = new Logger('mage_logger');
 
-        self::$logFilePath = BP . $file;
+        if($file === null) {
+            self::$logFilePath = BP . self::$logFile;
+        } else {
+            self::$logFilePath = BP . $file;
+        }
         // Now add some handlers
         self::$logger->pushHandler(new StreamHandler(self::$logFilePath));
 
