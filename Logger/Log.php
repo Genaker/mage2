@@ -32,12 +32,12 @@ trait Log
 
     }
 
-    public static function debbug($message, array $context = []): void
+    public static function debug($message, array $context = []): void
     {
         if (self::$logger === null) {
             self::Init();
         }
-        self::$logger->debbug($message, $context);
+        self::$logger->debug($message, $context);
     }
 
     public static function log($log, $file = '', $buffer = false)
