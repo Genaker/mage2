@@ -12,7 +12,7 @@ trait Regestry
 
     public static function rget($key, $exception = true)
     {
-        if (!isset(static::$regestry[$key])) {
+        if (!isset (static::$regestry[$key])) {
             if ($exception) {
                 throw new \Exception("No such key ($key) in the regestry");
             } else {
@@ -24,7 +24,7 @@ trait Regestry
 
     public static function rdel($key, $exception = true)
     {
-        if (!isset(static::$regestry[$key])) {
+        if (!isset (static::$regestry[$key])) {
             if ($exception) {
                 throw new \Exception("No such key ($key) in the regestry");
             } else {
@@ -33,6 +33,5 @@ trait Regestry
         }
         unset(static::$regestry[$key]);
     }
-
 
 }

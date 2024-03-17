@@ -7,6 +7,6 @@ use Magento\Framework\Component\ComponentRegistrar;
 
 ComponentRegistrar::register(ComponentRegistrar::MODULE, 'Mage_Mage', __DIR__);
 
-if(!class_exists('Mage')) {
-    include('Mage.php');
+if (!class_exists('Mage')) {
+    include ('Mage.php');
 }

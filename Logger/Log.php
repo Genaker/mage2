@@ -2,6 +2,7 @@
 namespace Mage\Mage\Logger;
 trait Log
 {
+    public $logger = null;
     public static $logBuffer = [];
     public static $logPath = '/var/log/';
     public static $logFile = 'my-error.log';
@@ -22,10 +23,6 @@ trait Log
         } else {
             error_log('['. date("Y-m-d h:i:sa") . '] ' . print_r($log, TRUE) . PHP_EOL, 3, BP . $file);
         }
-    }
-
-    static function dd($message){
-        die($message);
     }
 
     public static function writeBuffer($file = ''){

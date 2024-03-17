@@ -5,7 +5,8 @@
     "license": "GPL-3.0",
     "minimum-stability": "stable",
     "require": {
-        "symfony/var-dumper": ">=6.0"
+        "symfony/var-dumper": ">=6.0",
+        "kint-php/kint": ">5.0"
     },
     "autoload": {
         "files": [
