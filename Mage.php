@@ -62,6 +62,8 @@ class Mage
         }
         return self::$regestry['media_url'];
     }
-
-    
+    static function getPasePath()
+    {
+        return BP;
+    }
 }

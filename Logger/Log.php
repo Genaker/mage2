@@ -15,15 +15,14 @@ trait Log
     public static $logBuffer = [];
     public static $logPath = '/var/log/';
     public static $logFile = 'mage-log.log';
-
     public static $logFilePath = null;
 
     public static function Init($file = null)
     {
         self::$logger = new Logger('mage_logger');
 
-        if($file === null) {
-            self::$logFilePath = BP . '/' . self::$logPath. '/'. self::$logFile;
+        if ($file === null) {
+            self::$logFilePath = BP . '/' . self::$logPath . '/' . self::$logFile;
         } else {
             self::$logFilePath = BP . '/' . self::$file;
         }
@@ -32,12 +31,57 @@ trait Log
 
     }
 
+    public static function enableFirePHP(){
+        self::$logger->pushHandler(new FirePHPHandler());
+    }
+
     public static function debug($message, array $context = []): void
     {
         if (self::$logger === null) {
             self::Init();
         }
         self::$logger->debug($message, $context);
+    }
+
+    public static function info($message, array $context = []): void
+    {
+        if (self::$logger === null) {
+            self::Init();
+        }
+        self::$logger->info($message, $context);
+    }
+
+
+    public static function alert($message, array $context = []): void
+    {
+        if (self::$logger === null) {
+            self::Init();
+        }
+        self::$logger->alert($message, $context);
+    }
+
+    public static function critical($message, array $context = []): void
+    {
+        if (self::$logger === null) {
+            self::Init();
+        }
+        self::$logger->critical($message, $context);
+    }
+
+    public static function error($message, array $context = []): void
+    {
+        if (self::$logger === null) {
+            self::Init();
+        }
+        self::$logger->error($message, $context);
+    }
+
+    public static function warning($message, array $context = []): void
+    {
+        if (self::$logger === null) {
+            self::Init();
+        }
+        self::$logger->warning($message, $context);
     }
 
     public static function log($log, $file = '', $buffer = false)
