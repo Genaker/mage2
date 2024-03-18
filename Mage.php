@@ -48,6 +48,11 @@ class Mage
         return self::$objectManager->create($className);
     }
 
+    public static function create(string $className)
+    {
+        self::get($className, true);
+    }
+
     static function getVersion($key = 'version')
     {
         $composerJson = json_decode(file_get_contents(BP . '/composer.json'));

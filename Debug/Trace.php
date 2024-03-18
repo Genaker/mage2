@@ -31,6 +31,10 @@ trait Trace
         die ("Die After Backtrace");
     }
 
+    static function microtime($message = null){
+        Kint::dump(microtime(), $message);
+    }
+
     static function d($var)
     {
         Kint::$depth_limit = self::$depth_limit;
