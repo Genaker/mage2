@@ -49,6 +49,6 @@ trait Trace
 
     static function settingsKint()
     {
-        kint::getStatics();
+        Kint::getStatics();
     }
 }
