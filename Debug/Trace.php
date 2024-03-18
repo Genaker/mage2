@@ -31,7 +31,8 @@ trait Trace
         die ("Die After Backtrace");
     }
 
-    static function microtime($message = null){
+    static function microtime($message = null)
+    {
         Kint::dump(microtime(), $message);
     }
 
