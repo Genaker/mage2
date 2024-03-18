@@ -32,6 +32,9 @@ trait Log
     }
 
     public static function enableFirePHP(){
+        if (self::$logger === null) {
+            self::Init();
+        }
         self::$logger->pushHandler(new FirePHPHandler());
     }
 
