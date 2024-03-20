@@ -17,6 +17,7 @@ include 'Core/Regestry.php';
 use \Mage\Mage\Logger\Log;
 use \Mage\Mage\Debug\Dump;
 use \Mage\Mage\Debug\Trace;
+use \Mage\Mage\DB\DB;
 use \Mage\Mage\Core\Regestry;
 
 use Magento\Framework\App\ObjectManager;
@@ -27,6 +28,7 @@ class Mage
     use Regestry;
     use Trace;
     use Dump;
+    use DB;
 
     public static $objectManager = null;
 
@@ -48,6 +50,12 @@ class Mage
         return self::$objectManager->create($className);
     }
 
+    //Alias function
+    public static function om(string $className, bool $new = false)
+    {
+        return self::get($className, $new);
+    }
+
     public static function create(string $className)
     {
         self::get($className, true);
@@ -67,8 +75,37 @@ class Mage
         }
         return self::$regestry['media_url'];
     }
-    static function getPasePath()
+    static function getBasePath()
     {
         return BP;
+    }
+
+    public static function getUrl($path = '/')
+    {
+        return self::get('\Magento\Framework\UrlInterface')->getUrl($path);
+    }
+
+    public static function dispatchEvent($eventName, $data = [])
+    {
+        self::get('Magento\Framework\Event\Manager')->dispatch($eventName, $data);
+    }
+
+
+    public static function getDBConnection($connectionName = 'default')
+    {
+        return self::get('\Magento\Framework\App\ResourceConnection')->getConnection($connectionName);
+    }
+
+    public static function getMode()
+    {
+        return self::get('\Magento\Framework\App\Stat')->getMode();
+    }
+
+    /**
+     * Retrieve config value for store by path
+     */
+    public static function getConfigValue($path, $storeId = null)
+    {
+        return self::get('\Magento\Framework\App\Config\ScopeConfigInterface')->getValue($path, '\Magento\Store\Model\ScopeInterface::SCOPE_STORE', $storeId);
     }
 }
