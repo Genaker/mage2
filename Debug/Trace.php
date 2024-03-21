@@ -6,9 +6,21 @@ use Kint\Kint;
 trait Trace
 {
     public $trace = null;
+
+    public static $defaultTheme = 'aante-dark.css';
+
+    public static $allThemes = [
+        'original.css',
+        'solarized.css',
+        'solarized-dark.css',
+        'aante-light.css',
+        'aante-dark.css'
+    ];
+
     public static $depth_limit = 3;
     static function backtrace($level = null)
     {
+        \Kint\Renderer\RichRenderer::$theme = self::$defaultTheme;
         if ($level === null) {
             Kint::$depth_limit = self::$depth_limit;
         } else {
