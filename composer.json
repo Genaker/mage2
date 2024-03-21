@@ -6,7 +6,8 @@
     "minimum-stability": "stable",
     "require": {
         "symfony/var-dumper": ">=6.0",
-        "kint-php/kint": ">5.0"
+        "kint-php/kint": ">5.0",
+        "illuminate/database": ">8.0"
     },
     "autoload": {
         "files": [

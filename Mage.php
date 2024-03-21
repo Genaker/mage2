@@ -31,6 +31,7 @@ class Mage
     use DB;
 
     public static $objectManager = null;
+    public static $om = null;
 
     public static $classRegestry = [];
 
@@ -42,6 +43,7 @@ class Mage
             }
             if (!isset (self::$objectManager)) {
                 self::$objectManager = ObjectManager::getInstance();
+                self::$om = self::$objectManager;
             }
             self::$classRegestry[$className] = self::$objectManager->get($className);
             return self::$classRegestry[$className];
