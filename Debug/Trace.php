@@ -20,7 +20,6 @@ trait Trace
     public static $depth_limit = 3;
     static function backtrace($level = null)
     {
-        \Kint\Renderer\RichRenderer::$theme = self::$defaultTheme;
         if ($level === null) {
             Kint::$depth_limit = self::$depth_limit;
         } else {
