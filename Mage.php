@@ -14,6 +14,9 @@ include 'Debug/Dump.php';
 include 'Debug/Trace.php';
 include 'Core/Regestry.php';
 
+\Kint\Renderer\RichRenderer::$theme = 'aante-dark.css';
+\Kint\Renderer\RichRenderer::$folder = true;
+
 use \Mage\Mage\Logger\Log;
 use \Mage\Mage\Debug\Dump;
 use \Mage\Mage\Debug\Trace;
