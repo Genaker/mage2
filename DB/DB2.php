@@ -1,6 +1,6 @@
 <?php
 
-namespace Mage\Mage\DB2;
+namespace Mage\Mage\DB;
 
 use \Illuminate\Database\Capsule\Manager as Capsule;
 use \Illuminate\Contracts\Events\Dispatcher;
@@ -9,10 +9,13 @@ use \Illuminate\Container\Container;
 /**
  * Class DB
  */
-class DB2
+class DB2 extends Capsule
 {
-    public function _construct()
-    {
+
+    public $connection = null;
+    public function __construct()
+    {   
+        parent::__construct();
         return $this->connection = $this->connect();
     }
 
@@ -27,14 +30,12 @@ class DB2
         'prefix' => '',
     ];
 
-    public $connection = null;
-
 
     private function getMageConfig()
     {
-        $path = BP . '\app\etc.php';
+        $path = BP . '/app/etc/env.php';
         if ($path !== false) {
-            return include($path)['db']['config']['default'];
+            return include $path;
         }
         return false;
     }
@@ -50,29 +51,35 @@ class DB2
      */
     public function connect(array $params = [])
     {
-
+        if ($this->connection !== null){
+            return $this->connection;
+        }
+        $envParams = $this->getMageConfig()['db']['connection']['default'];
+        $envParams['database'] = $envParams['dbname'];
+        $params = array_merge($envParams, $params);
         $params = array_merge($this->baseParams, $params);
         //$resource = \Mage::get('Magento\Framework\App\ResourceConnection')->getConnection('default');
         //$this->baseParams['pdo'] = $resource->getConnection();
 
-        $capsule = new Capsule();
+        //$capsule = new Capsule();
 
-        $capsule->addConnection($params);
+        // You can also reuse old magento connection but it is another story;
+        $this->addConnection($params);
 
         //$capsule->setEventDispatcher(new Dispatcher(new Container));
 
-        $capsule->setAsGlobal();
+        $this->setAsGlobal();
 
-        $capsule->bootEloquent();
+        $this->bootEloquent();
 
         //if(isset($params['log'])) $capsule->getConnection()->enableQueryLog();
 
-        return $this->connection = $capsule;
+        return $this->connection = $this;
     }
 
     public function test()
     {
-        $this->connection::select('select 0 + 1');
+        return $this->connection::select('select * from core_config_data where path = "web/secure/base_url" and scope_id = 0');
     }
 
 }

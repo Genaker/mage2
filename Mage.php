@@ -8,20 +8,23 @@
 declare(strict_types=1);
 
 //namespace Mage\Mage;
-
+/*
 include 'Logger/Log.php';
 include 'Debug/Dump.php';
 include 'Debug/Trace.php';
 include 'Core/Regestry.php';
-
-\Kint\Renderer\RichRenderer::$theme = 'aante-dark.css';
-\Kint\Renderer\RichRenderer::$folder = true;
+*/
 
 use \Mage\Mage\Logger\Log;
 use \Mage\Mage\Debug\Dump;
 use \Mage\Mage\Debug\Trace;
 use \Mage\Mage\DB\DB;
+use \Mage\Mage\DB\DB2;
 use \Mage\Mage\Core\Regestry;
+
+\Kint\Renderer\RichRenderer::$theme = 'aante-dark.css';
+\Kint\Renderer\RichRenderer::$folder = true;
+((new DB2()));
 
 use Magento\Framework\App\ObjectManager;
 
