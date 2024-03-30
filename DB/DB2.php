@@ -33,7 +33,7 @@ class DB2 extends Capsule
 
     private function getMageConfig()
     {
-        $path = BP . '/app/etc/env.php';
+        $path = \BP . '/app/etc/env.php';
         if ($path !== false) {
             return include $path;
         }
