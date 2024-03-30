@@ -8,7 +8,7 @@
         "symfony/var-dumper": ">=6.0",
         "kint-php/kint": ">5.0",
         "illuminate/database": ">8.0",
-        "psy/psysh": "^0.10.4"
+        "psy/psysh": "^0.12.0"
     },
     "autoload": {
         "files": [
@@ -23,12 +23,12 @@
         "post-install-cmd": [
             "pwd",
             "cp ./vendor/bin/psysh ./bin/",
-            "cp ./vendor/mage/mage/.psysh.php"
+            "cp ./vendor/mage/mage/.psysh.php ./"
     ],
         "post-update-cmd": [
             "pwd",
             "cp ./vendor/bin/psysh ./bin/",
-            "cp ./vendor/mage/mage/.psysh.php"
+            "cp ./vendor/mage/mage/.psysh.php ./"
     ]
     }
 }
