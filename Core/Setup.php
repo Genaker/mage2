@@ -14,6 +14,7 @@ class Setup
     
     public static function setup()
     {
+        echo "Setup Sript->";
         shell_exec("pwd");
         shell_exec("cp -n ../../.psysh.php ../../../../..");
     }
