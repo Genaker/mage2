@@ -48,14 +48,20 @@ class Mage
                 return self::$classRegestry[$className];
             }
             if (!isset (self::$objectManager)) {
-                self::$objectManager = ObjectManager::getInstance();
-                self::$om = self::$objectManager;
+                self::omInit();
             }
             self::$classRegestry[$className] = self::$objectManager->get($className);
             return self::$classRegestry[$className];
         }
 
         return self::$objectManager->create($className);
+    }
+
+    public static function omInit(){
+        if (!isset (self::$objectManager)) {
+            self::$objectManager = ObjectManager::getInstance();
+            self::$om = self::$objectManager;
+        }
     }
 
     //Alias function
