@@ -2,9 +2,9 @@
 
 namespace Mage\Mage\DB;
 
-use \Illuminate\Database\Capsule\Manager as Capsule;
-use \Illuminate\Contracts\Events\Dispatcher;
-use \Illuminate\Container\Container;
+use Illuminate\Database\Capsule\Manager as Capsule;
+use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Container\Container;
 
 /**
  * Class DB
