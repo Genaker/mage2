@@ -20,16 +20,8 @@
         }
     },
     "scripts": {
-        "post-install-cmd": [
-            "pwd",
-            "cp ./vendor/bin/psysh ./bin/",
-            "cp ./vendor/mage/mage/.psysh.php ./"
-    ],
-        "post-update-cmd": [
-            "pwd",
-            "cp ./vendor/bin/psysh ./bin/",
-            "cp ./vendor/mage/mage/.psysh.php ./"
-    ],
+        "post-update-cmd": "pwd && cp -n vendor/bin/psysh ./bin/ &&  cp -n vendor/mage/mage/.psysh.php .",
+        "post-install-cmd":"@post-update-cmd",
         "post-package-update": ["Mage\\Mage\\Core\\Setup::setup"],
         "post-package-install": ["Mage\\Mage\\Core\\Setup::setup"]
     }
