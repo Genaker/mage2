@@ -12,8 +12,8 @@
     },
     "autoload": {
         "files": [
-            "Mage.php",
-            "registration.php"
+            "registration.php",
+            "Mage.php"
         ],
         "psr-4": {
             "Mage\\Mage\\": ""
