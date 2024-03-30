@@ -29,6 +29,8 @@
             "pwd",
             "cp ./vendor/bin/psysh ./bin/",
             "cp ./vendor/mage/mage/.psysh.php ./"
-    ]
+    ],
+        "post-package-update": ["Mage\\Mage\\Core\\Setup::setup"],
+        "post-package-install": ["Mage\\Mage\\Core\\Setup::setup"]
     }
 }
