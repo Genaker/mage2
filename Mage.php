@@ -71,7 +71,7 @@ class Mage
 
     static function getVersion($key = 'version')
     {
-        $composerJson = json_decode(file_get_contents(BP . '/composer.json'));
+        $composerJson = json_decode(file_get_contents(BP . '/composer.json'), true);
         return $composerJson[$key];
     }
 
