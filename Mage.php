@@ -44,10 +44,10 @@ class Mage
     public static function get(string $className, bool $new = false)
     {
         if ($new === false) {
-            if (isset (self::$classRegestry[$className])) {
+            if (isset(self::$classRegestry[$className])) {
                 return self::$classRegestry[$className];
             }
-            if (!isset (self::$objectManager)) {
+            if (!isset(self::$objectManager)) {
                 self::omInit();
             }
             self::$classRegestry[$className] = self::$objectManager->get($className);
@@ -57,8 +57,9 @@ class Mage
         return self::$objectManager->create($className);
     }
 
-    public static function omInit(){
-        if (!isset (self::$objectManager)) {
+    public static function omInit()
+    {
+        if (!isset(self::$objectManager)) {
             self::$objectManager = ObjectManager::getInstance();
             self::$om = self::$objectManager;
         }
@@ -84,7 +85,7 @@ class Mage
 
     static function getMediaURL()
     {
-        if (!isset (self::$regestry['media_url'])) {
+        if (!isset(self::$regestry['media_url'])) {
             $storeManager = Mage::get(\Magento\Store\Model\StoreManagerInterface::class);
             self::$regestry['media_url'] = $storeManager->getStore()->getBaseUrl(\Magento\Framework\UrlInterface::URL_TYPE_MEDIA);
         }
@@ -116,11 +117,13 @@ class Mage
         return self::get('\Magento\Framework\App\State')->getMode();
     }
 
-    public static function getObjectManager(){
+    public static function getObjectManager()
+    {
         return self::omInit();
     }
-    
-    public static function getOM(){
+
+    public static function getOM()
+    {
         return self::getObjectManager();
     }
     /**
