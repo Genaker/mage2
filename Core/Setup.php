@@ -9,8 +9,8 @@ class Setup
     {
         echo "Setup Sript->\n";
         echo shell_exec("pwd");
-        echo shell_exec("cp -n vendor/mage/mage/.psysh.php .");
-        echo shell_exec("cp -n vendor/bin/psysh ./bin/");
+        echo shell_exec("cp vendor/mage/mage/.psysh.php .");
+        echo shell_exec("cp vendor/bin/psysh ./bin/");
     }
 
 }
