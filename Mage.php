@@ -62,6 +62,7 @@ class Mage
             self::$objectManager = ObjectManager::getInstance();
             self::$om = self::$objectManager;
         }
+        return self::$om;
     }
 
     //Alias function
@@ -112,9 +113,16 @@ class Mage
 
     public static function getMode()
     {
-        return self::get('\Magento\Framework\App\Stat')->getMode();
+        return self::get('\Magento\Framework\App\State')->getMode();
     }
 
+    public static function getObjectManager(){
+        return self::omInit();
+    }
+    
+    public static function getOM(){
+        return self::getObjectManager();
+    }
     /**
      * Retrieve config value for store by path
      */

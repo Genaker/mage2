@@ -30,10 +30,13 @@ class Product
         if (!static::$repository){
             static::$repository = \Mage::get(ProductRepositoryInterface::class);     
         }
+        if (is_array($productSku)){
+            return self::getbyFilter(['sku' => $productSku]);
+        }
         return static::$repository->get($productSku);
     }
 
-    public static function getByFilter($filters = [], SearchCriteriaInterface $searchCriteria = null){
+    public static function getByFilter($filters = [], SearchCriteriaInterface $searchCriteria = null, FilterBuilder $searchFilters = null){
         if (empty($filters) && $searchCriteria === null){
             throw new \Exception("Filters are empty");
         }
@@ -42,19 +45,31 @@ class Product
             $searchCriteriaBuilder = \Mage::get(SearchCriteriaBuilder::class);
             $searchCriteria = \Mage::get(SearchCriteriaInterface::class);
 
-            $searchfilters = [];
+            if (!isset($searchFilters)){
+            $searchFilters = [];
+            
             foreach ($filters as $filterKey => $filterValue){
-                $searchfilters[] = $filterBuilder
+
+                $operation = 'in';
+                //if associated array
+                if (!isset($filterValue[0])){
+                    $operation = key($filterValue);
+                    $filterValue = value($filterValue);
+                }
+
+                $searchFilters[] = $filterBuilder
                 ->setField($filterKey)
-                ->setConditionType('eq')
+                ->setConditionType($operation)
                 ->setValue($filterValue)
                 ->create();
             }
-            $searchCriteria = $searchCriteriaBuilder->addFilters($searchfilters)->create();
+        }
+
+            $searchCriteria = $searchCriteriaBuilder->addFilters($searchFilters)->create();
         }
         if (!static::$repository){
             static::$repository = \Mage::get(ProductRepositoryInterface::class);     
         }
         return static::$repository->getList($searchCriteria)->getItems();
     }
-}
+}   

@@ -8,19 +8,35 @@ class Cache
     public static $cache = null;
     public static $inMemoryStorege = null;
 
-    public static function load($value, $key, $tags = [], $ttl = 3600)
+    public static function save($value, $key, $tags = [], $ttl = 3600)
     {
         if (!self::$cache) {
             self::$cache = \Mage::get(CacheInterface::class);
         }
         return self::$cache->save($value, $key, $tags, $ttl);
     }
-    public static function save($key)
+
+    /**
+     * Alias to save
+     */
+    public static function set($key, $value, $tags = [], $ttl = 3600)
+    {
+       return self::save($value, $key);
+    }
+    public static function load($key)
     {
         if (!self::$cache) {
             self::$cache = \Mage::get(CacheInterface::class);
         }
         return self::$cache->load($key);
+    }
+
+    /**
+     * Alias to load
+     */
+    public static function get($key)
+    {
+       return self::load($key);
     }
     public static function test($key)
     {
@@ -37,4 +53,10 @@ class Cache
         return self::$cache->remove($key);
     }
 
+    public static function getInstance(){
+        if (!self::$cache) {
+           return self::$cache = \Mage::get(CacheInterface::class);
+        }
+        return self::$cache;
+    }
 }
