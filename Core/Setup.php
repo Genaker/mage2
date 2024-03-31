@@ -14,9 +14,10 @@ class Setup
     
     public static function setup()
     {
-        echo "Setup Sript->";
-        shell_exec("pwd");
-        shell_exec("cp -n ../../.psysh.php ../../../../..");
+        echo "Setup Sript->\n";
+        echo shell_exec("pwd");
+        echo shell_exec("cp -n vendor/mage/mage/.psysh.php .");
+        echo shell_exec("cp -n vendor/bin/psysh ./bin/");
     }
 
 }

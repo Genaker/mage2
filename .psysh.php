@@ -4,13 +4,21 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 $defaultIncludes = [];
 try {
-    echo "Starting DIR:" . __DIR__;
+    echo "Starting DIR:" . __DIR__ . "\n";
+    $startTime = microtime(true);
+    echo "Start Magento Bootstrap\n";
     require __DIR__ . '/app/bootstrap.php';
+    $params = $_SERVER;
+    $params['MAGE_RUN_CODE'] = 'admin';
+    $params['custom_entry_point'] = true;
+    $bootstrap = \Magento\Framework\App\Bootstrap::create(BP, $params);
+    $endTime = microtime(true);
+    $time = $endTime - $startTime;
+    echo "End Magento Bootstrap in " . $time . " microseconds\n";
 } catch (\Exception $e) {
     echo 'Autoload error: ' . $e->getMessage();
     exit(1);
 }
-
 
 
 $bootstrapPath = __DIR__ . '/include/bootstrap.php';
