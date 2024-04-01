@@ -9,4 +9,11 @@ class Customer
     {
         return \Mage::get(CustomerRepositoryInterface::class)->get($email, $websiteId);
     }
+
+    public static function getById($id)
+    {
+        return \Mage::get(CustomerRepositoryInterface::class)->getById($id);
+    }
+
+
 }
