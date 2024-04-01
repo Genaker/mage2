@@ -14,6 +14,4 @@ class Customer
     {
         return \Mage::get(CustomerRepositoryInterface::class)->getById($id);
     }
-
-
 }
