@@ -1,0 +1,51 @@
+<?xml version="1.0" ?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="empty" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	 <head>
+        <meta name="robots" content="NOINDEX,NOFOLLOW"/>
+    <remove src="mage/calendar.css"/>
+        <!--<remove src="requirejs/require.js"/>-->
+        <remove src="css/styles-l.css"/>
+        <remove src="css/styles-m.css"/>
+        <remove src="css/styles-s.css"/>
+        <remove src="css/print.css"/>
+        <!--<remove src="requirejs/require.js"/>
+        <remove src="mage/requirejs/mixins.js"/>
+        <remove src="requirejs-config.js"/>
+        <remove src="mage/polyfill.js"/>-->
+    </head>
+	<body>
+		<referenceContainer name="root">
+			<block name="index.index" class="Mage\Mage\Block\Index\Index" template="Mage_Mage::index/index.phtml"/>
+		</referenceContainer>
+		
+		<referenceContainer name="after.body.start">
+			<referenceBlock name="google-tag-manager-noscript" remove="true"/>
+			<referenceBlock name="global_notices" remove="true"/>
+			<referenceBlock name="theme.active.editor" remove="true"/>
+			<referenceBlock name="cookie_notices" remove="true"/>
+			<referenceBlock name="cookie_config" remove="true"/>
+			<referenceBlock name="google.maps.api" remove="true"/>
+			<referenceBlock name="js_cookies" remove="true"/>
+			<referenceBlock name="logger" remove="true"/>
+			<referenceBlock name="paypal.express-in-context.component" remove="true"/>
+		</referenceContainer>
+		<referenceContainer name="before.body.end">
+			<referenceBlock name="absolute_footer" remove="true"/>
+			<referenceBlock name="wishlist_behaviour" remove="true"/>
+			<referenceBlock name="banner_impression" remove="true"/>
+			<referenceBlock name="launch_private_content_block" remove="true"/>
+			<referenceBlock name="launch_datalayer" remove="true"/>
+			<referenceBlock name="api.header.js" remove="true"/>
+		</referenceContainer>
+		<referenceContainer name="page.wrapper" >
+			<referenceBlock name="global.notices" remove="true"/>
+			<referenceBlock name="api.header" remove="true"/>
+			<referenceBlock name="breadcrumbs" remove="true"/>
+		</referenceContainer>
+		<referenceContainer name="page.bottom.container" remove="true"/>
+		<referenceContainer name="main.content" remove="true"/>
+		<referenceContainer name="head.components" remove="true"/>
+        <referenceBlock name="translate" remove="true"/>
+        <!--<referenceBlock name="requirejs-config" remove="true"/>-->
+	</body>
+</page>
