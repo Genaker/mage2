@@ -6,8 +6,8 @@
     "minimum-stability": "stable",
     "require": {
         "symfony/var-dumper": ">=6.0",
-        "kint-php/kint": ">5.0",
-        "illuminate/database": "^v9.0 || ^v10.0",
+        "kint-php/kint": ">5.0", 
+        "illuminate/database": "^v8.0 || ^v9.0 || ^v10.0",
         "illuminate/events": "^v9.0 || ^v10.0",
         "illuminate/filesystem": "^v9.0 || ^v10.0",
         "illuminate/routing": "^v9.0 || ^v10.0",
