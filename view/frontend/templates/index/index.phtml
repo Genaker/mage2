@@ -1,8 +1,8 @@
 <h1> Mage Dev Report</h1>
 
 <?php 
-//dd("exit");
-\Kint::dump(\Mage\Request::getRequest());
+dd(\Mage\Request::getRequest());
+//\Kint::dump(\Mage\Request::getRequest());
 $reportFileName = BP.'/var/report';
 if(is_file($reportFileName)){
 $homepage = file_get_contents($reportFileName);
