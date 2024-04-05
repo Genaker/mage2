@@ -1,5 +1,5 @@
 <?php
-namespace Mage\Mage\Core;
+namespace Mage\Core;
 
 use Composer\Script\Event;
 use Composer\Installer\PackageEvent;

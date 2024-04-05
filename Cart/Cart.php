@@ -1,8 +1,8 @@
 <?php
-namespace Mage\Mage\Cart;
+namespace Mage\Cart;
 
 use Magento\Quote\Model\Quote;
-use Mage\Mage\Product\Product;
+use Mage\Product\Product;
 use Magento\Checkout\Model\Session as CheckoutSession;
 use Magento\Quote\Model\QuoteRepository;
 use Magento\Customer\Api\CustomerRepositoryInterface as Customer;

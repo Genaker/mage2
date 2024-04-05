@@ -1,5 +1,5 @@
 <?php
-namespace Mage\Mage\Cache;
+namespace Mage\Cache;
 
 use Magento\Framework\App\CacheInterface;
 

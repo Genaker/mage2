@@ -1,5 +1,5 @@
 <?php
-namespace Mage\Mage\DB;
+namespace Mage\DB;
 
 trait DB
 {

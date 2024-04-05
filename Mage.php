@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-//namespace Mage\Mage;
+//namespace Mage;
 /*
 include 'Logger/Log.php';
 include 'Debug/Dump.php';
@@ -15,12 +15,12 @@ include 'Debug/Trace.php';
 include 'Core/Regestry.php';
 */
 
-use \Mage\Mage\Logger\Log;
-use \Mage\Mage\Debug\Dump;
-use \Mage\Mage\Debug\Trace;
-use \Mage\Mage\DB\DB;
-use \Mage\Mage\DB\DB2;
-use \Mage\Mage\Core\Regestry;
+use \Mage\Logger\Log;
+use \Mage\Debug\Dump;
+use \Mage\Debug\Trace;
+use \Mage\DB\DB;
+use \Mage\DB\DB2;
+use \Mage\Core\Regestry;
 
 \Kint\Renderer\RichRenderer::$theme = 'aante-dark.css';
 \Kint\Renderer\RichRenderer::$folder = true;

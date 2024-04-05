@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Mage\Mage\Controller\Index;
+namespace Mage\Controller\Index;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\ResultInterface;

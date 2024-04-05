@@ -1,5 +1,5 @@
 <?php
-namespace Mage\Mage\Customer;
+namespace Mage\Customer;
 
 use Magento\Customer\API\CustomerRepositoryInterface;
 

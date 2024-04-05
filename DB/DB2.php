@@ -1,6 +1,6 @@
 <?php
 
-namespace Mage\Mage\DB;
+namespace Mage\DB;
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 use Illuminate\Contracts\Events\Dispatcher;

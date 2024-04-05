@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Mage_Mage::index_index" title="Debug Report" module="Mage_Mage" sortOrder="9999" resource="Magento_Backend::content" parent="Magento_Backend::system_tools" action="report/index/index"/>
+	</menu>
+</config>

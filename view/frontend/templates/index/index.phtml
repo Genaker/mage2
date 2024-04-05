@@ -1,4 +1,11 @@
-Hello index/index.phtml
+<h1> Mage Dev Report</h1>
 
 <?php 
-echo "Block";
+//dd("exit");
+\Kint::dump(\Mage\Request::getRequest());
+$reportFileName = BP.'/var/report';
+if(is_file($reportFileName)){
+$homepage = file_get_contents($reportFileName);
+echo $homepage;
+}
+

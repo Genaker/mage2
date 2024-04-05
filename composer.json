@@ -16,7 +16,7 @@
             "Mage.php"
         ],
         "psr-4": {
-            "Mage\\Mage\\": ""
+            "Mage\\": ""
         }
     },
     "scripts": {

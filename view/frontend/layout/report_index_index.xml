@@ -15,11 +15,12 @@
     </head>
 	<body>
 		<referenceContainer name="root">
-			<block name="index.index" class="Mage\Mage\Block\Index\Index" template="Mage_Mage::index/index.phtml"/>
+			<block name="index.index" class="Mage\Block\Index\Index" template="Mage_Mage::index/index.phtml"  cacheable="false" />
 		</referenceContainer>
-		
+
 		<referenceContainer name="after.body.start">
 			<referenceBlock name="google-tag-manager-noscript" remove="true"/>
+			<referenceBlock name="fastlycdn.geoip.getaction" remove="true"/>
 			<referenceBlock name="global_notices" remove="true"/>
 			<referenceBlock name="theme.active.editor" remove="true"/>
 			<referenceBlock name="cookie_notices" remove="true"/>
@@ -44,6 +45,7 @@
 		</referenceContainer>
 		<referenceContainer name="page.bottom.container" remove="true"/>
 		<referenceContainer name="main.content" remove="true"/>
+		<referenceContainer name="login-as-customer-notice" remove="true"/>
 		<referenceContainer name="head.components" remove="true"/>
         <referenceBlock name="translate" remove="true"/>
         <!--<referenceBlock name="requirejs-config" remove="true"/>-->

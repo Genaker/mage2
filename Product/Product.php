@@ -1,5 +1,5 @@
 <?php
-namespace Mage\Mage\Product;
+namespace Mage\Product;
 
 use Magento\Catalog\Api\ProductRepositoryInterface;
 use Magento\Framework\Api\SearchCriteriaInterface;

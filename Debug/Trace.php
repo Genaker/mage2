@@ -1,5 +1,5 @@
 <?php
-namespace Mage\Mage\Debug;
+namespace Mage\Debug;
 
 use Kint\Kint;
 

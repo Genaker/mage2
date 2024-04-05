@@ -1,5 +1,5 @@
 <?php
-namespace Mage\Mage\Logger;
+namespace Mage\Logger;
 
 
 use Monolog\Level;

@@ -1,5 +1,5 @@
 <?php
-namespace Mage\Mage\Core;
+namespace Mage\Core;
 
 trait Regestry
 {

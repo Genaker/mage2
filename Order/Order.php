@@ -1,5 +1,5 @@
 <?php
-namespace Mage\Mage\Order;
+namespace Mage\Order;
 
 use Magento\Sales\Api\Data\OrderInterface;
 use Magento\Sales\Model\OrderRepository;

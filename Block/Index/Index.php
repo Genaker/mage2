@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Mage\Mage\Block\Index;
+namespace Mage\Block\Index;
 
 class Index extends \Magento\Framework\View\Element\Template
 {

@@ -1,5 +1,5 @@
 <?php
-namespace Mage\Mage\Debug;
+namespace Mage\Debug;
 
 trait Dump
 {
