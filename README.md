@@ -25,7 +25,7 @@ We have decided to use a facade design pattern because the magento 2 system is v
 
 # Mage DB2 facade powered by Laravel query builder
 
-Magento 2 uses an outdated Zend_DB library and slow legacy ORM to interact with a database. Mage DB2 based on Laravel/DB makes interacting with databases extremely simple and fast using raw SQL, a fluent Laravel query builder, and the Eloquent ORM in conjunction with the Laragento package.
+Magento 2 uses an outdated Zend_DB library to implement a slow legacy ORM and interact with a database. Mage DB2, based on Laravel/DB, makes work with databases extremely simple and fast using raw SQL, a fluent Laravel query builder, and the Eloquent ORM in conjunction with the Laragento package.
 
 Also, Laravel collections provide a variety of extremely powerful methods for mapping and reducing data. For more information, check the awesome Laravel documentation. 
 https://laravel.com/docs/11.x/queries
