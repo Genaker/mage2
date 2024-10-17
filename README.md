@@ -13,7 +13,7 @@ Magento 2 sucks, and Mage is here to resolve this issue. Adobe killed Magento wi
 * Fast, accessible Object manager
 * Symfony Dumper features
 * Kint Backtrace and Debug
-* Eloquent/Laravel Query Builder and ORM (provided by Laragento)
+* Eloquent/Laravel Query Builder and ORM (powered by Laragento)
 
 # Advantages of the Mage::Facades
 
