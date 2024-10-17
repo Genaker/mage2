@@ -8,7 +8,7 @@ Mage facades serve as "static proxies" to underlying classes in the service cont
 # Mage library is not only facades!
 
 Magento 2 sucks, and Mage is here to resolve this issue. Adobe killed Magento with the scum and overengenered bloatware. Mage adding additional nice development features not available with Magento 2 core.
-* Fast easy accesible fasades
+* Fast easy accesible facades
 * Easy Logger
 * Fast, accessible Object manager
 * Symfony Dumper features
