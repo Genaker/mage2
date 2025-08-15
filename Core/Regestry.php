@@ -1,37 +1,37 @@
 <?php
 namespace Mage\Core;
 
-trait Regestry
+trait Registry
 {
-    public static $regestry = [];
+    public static $registry = [];
 
     public static function rset($key, $value)
     {
-        return static::$regestry[$key] = $value;
+        return static::$registry[$key] = $value;
     }
 
     public static function rget($key, $exception = true)
     {
-        if (!isset (static::$regestry[$key])) {
+        if (!isset(static::$registry[$key])) {
             if ($exception) {
-                throw new \Exception("No such key ($key) in the regestry");
+                throw new \Exception("No such key ($key) in the registry");
             } else {
                 return false;
             }
         }
-        return static::$regestry[$key];
+        return static::$registry[$key];
     }
 
     public static function rdel($key, $exception = true)
     {
-        if (!isset (static::$regestry[$key])) {
+        if (!isset(static::$registry[$key])) {
             if ($exception) {
-                throw new \Exception("No such key ($key) in the regestry");
+                throw new \Exception("No such key ($key) in the registry");
             } else {
                 return false;
             }
         }
-        unset(static::$regestry[$key]);
+        unset(static::$registry[$key]);
     }
 
 }

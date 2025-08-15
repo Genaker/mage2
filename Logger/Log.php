@@ -1,22 +1,92 @@
 <?php
-namespace Mage\Logger;
+/**
+ * Logger Trait - Advanced logging functionality
+ * 
+ * Provides comprehensive logging capabilities using Monolog library
+ * with support for multiple handlers and log levels.
+ * 
+ * @category   Mage
+ * @package    Mage_Logger
+ * @author     Mage Development Team
+ * @copyright  Copyright © All rights reserved.
+ * @license    GPL-3.0
+ * @since      1.0.0
+ */
 
+namespace Mage\Logger;
 
 use Monolog\Level;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\FirePHPHandler;
 
-// Create the logger
-
+/**
+ * Log Trait
+ * 
+ * Provides logging functionality using Monolog with multiple handlers
+ * and PSR-3 compatible logging methods.
+ * 
+ * Features:
+ * - Multiple log levels (debug, info, warning, error, etc.)
+ * - File and FirePHP handlers
+ * - Log buffering
+ * - Automatic logger initialization
+ * 
+ * @package Mage\Logger
+ * @since   1.0.0
+ */
 trait Log
 {
+    /**
+     * Monolog Logger instance
+     * 
+     * @var Logger|null
+     */
     public static $logger = null;
+    
+    /**
+     * Log buffer for batched logging
+     * 
+     * @var array<mixed>
+     */
     public static $logBuffer = [];
+    
+    /**
+     * Default log directory path
+     * 
+     * @var string
+     */
     public static $logPath = '/var/log/';
+    
+    /**
+     * Default log file name
+     * 
+     * @var string
+     */
     public static $logFile = 'mage-log.log';
+    
+    /**
+     * Full path to log file
+     * 
+     * @var string|null
+     */
     public static $logFilePath = null;
 
+    /**
+     * Initialize the logger
+     * 
+     * Sets up Monolog logger with stream handler for file logging.
+     * 
+     * @param string|null $file Custom log file name
+     * 
+     * @return void
+     * 
+     * @example
+     * ```php
+     * Mage::Init(); // Use default log file
+     * Mage::Init('custom.log'); // Use custom log file
+     * ```
+     */
     public static function Init($file = null)
     {
         self::$logger = new Logger('mage_logger');
@@ -31,6 +101,13 @@ trait Log
 
     }
 
+    /**
+     * Enable FirePHP logging handler
+     * 
+     * Adds FirePHP handler to send logs to browser console.
+     * 
+     * @return void
+     */
     public static function enableFirePHP(){
         if (self::$logger === null) {
             self::Init();
@@ -38,6 +115,19 @@ trait Log
         self::$logger->pushHandler(new FirePHPHandler());
     }
 
+    /**
+     * Add a debug level log entry
+     * 
+     * @param string $message Log message
+     * @param array $context Additional context data
+     * 
+     * @return void
+     * 
+     * @example
+     * ```php
+     * Mage::debug('Processing order', ['order_id' => 123]);
+     * ```
+     */
     public static function debug($message, array $context = []): void
     {
         if (self::$logger === null) {
@@ -46,6 +136,14 @@ trait Log
         self::$logger->debug($message, $context);
     }
 
+    /**
+     * Add an info level log entry
+     * 
+     * @param string $message Log message
+     * @param array $context Additional context data
+     * 
+     * @return void
+     */
     public static function info($message, array $context = []): void
     {
         if (self::$logger === null) {
@@ -71,6 +169,14 @@ trait Log
         self::$logger->critical($message, $context);
     }
 
+    /**
+     * Add an error level log entry
+     * 
+     * @param string $message Log message
+     * @param array $context Additional context data
+     * 
+     * @return void
+     */
     public static function error($message, array $context = []): void
     {
         if (self::$logger === null) {
@@ -87,6 +193,21 @@ trait Log
         self::$logger->warning($message, $context);
     }
 
+    /**
+     * Generic log method with custom file and buffer options
+     * 
+     * @param mixed $log Log data (string or any variable)
+     * @param string $file Custom log file name
+     * @param bool $buffer Whether to buffer the log entry
+     * 
+     * @return void
+     * 
+     * @example
+     * ```php
+     * Mage::log('Simple message');
+     * Mage::log($complexData, 'debug.log', true);
+     * ```
+     */
     public static function log($log, $file = '', $buffer = false)
     {
         if ($buffer) {
@@ -105,11 +226,18 @@ trait Log
         }
     }
 
+    /**
+     * Write buffered log entries to file
+     * 
+     * @param string $file Log file name (empty for default)
+     * 
+     * @return void
+     */
     public static function writeBuffer($file = '')
     {
         if ($file === '' || $file === false) {
             $file = self::$logFile;
         }
-        error_log(print_r(self::writeBuffer(), TRUE), 3, BP . $file);
+        error_log(print_r(self::$logBuffer, TRUE), 3, BP . $file);
     }
 }

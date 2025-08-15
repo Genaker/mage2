@@ -1,6 +1,6 @@
 {
     "name": "mage/mage",
-    "description": "Fix of the Magento 2 DI and Object Manager issue. Make Magento grate again!",
+    "description": "Fix of the Magento 2 DI and Object Manager issue. Make Magento great again!",
     "type": "magento2-module",
     "license": "GPL-3.0",
     "minimum-stability": "stable",
@@ -25,7 +25,7 @@
     },
     "scripts": {
         "post-update-cmd": "pwd && cp -n vendor/bin/psysh ./bin/ &&  cp -n vendor/mage/mage/.psysh.php .",
-        "post-install-cmd":"@post-update-cmd",
+        "post-install-cmd": "@post-update-cmd",
         "post-package-update": ["Mage\\Mage\\Core\\Setup::setup"],
         "post-package-install": ["Mage\\Mage\\Core\\Setup::setup"]
     }
